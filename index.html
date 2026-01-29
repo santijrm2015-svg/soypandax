@@ -1,531 +1,624 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ed TV</title>
+    <title>Portfolio SoyPandax</title>
+    <link rel="icon" href="https://placehold.co/32x32/000000/FFFFFF?text=P" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        /* --- ESTILOS GLOBALES Y CLON DE OME TV --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            overflow-x: hidden;
         }
 
-        /* --- LADO IZQUIERDO (INTERFAZ DE USUARIO) --- */
-        .user-interface {
-            width: 30%;
-            min-width: 300px;
-            background-color: #111;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .logo-section {
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
             text-align: center;
-            margin-bottom: 40px; /* Aumenté el margen para rellenar el espacio */
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+
+        .highlight {
+            background: linear-gradient(to right, #000000, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .stars-bg, .stars-bg-2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .stars-bg {
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: drift 200s linear infinite;
+            opacity: 0.3;
+        }
+
+        .stars-bg-2 {
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: drift 300s linear infinite reverse;
+            opacity: 0.2;
+        }
+
+        @keyframes drift {
+            from { transform: rotate(0deg) translateX(100px); }
+            to { transform: rotate(360deg) translateX(100px); }
+        }
+
+        .header {
+            padding: 1.5rem 0;
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            text-decoration: none;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .hero-image-wrapper {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-btn {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 0.5rem;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .services-grid, .content-grid, .trabajos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card, .project-card, .studio-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover, .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+
+        .service-title, .project-title {
             font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 1rem;
         }
 
-        .logo i {
-            color: #ff9500;
-            margin-right: 10px;
-            font-size: 2rem;
+        .service-description, .project-description {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
         }
 
-        .online-users {
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        .active-viewers {
-            font-size: 0.8rem;
-            color: #888;
-            margin-top: 5px;
-        }
-
-        /* Sección de botones de descarga eliminada */
-
-        .control-buttons {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            gap: 10px;
-        }
-
-        .control-btn {
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #fff;
-            background-color: #ff9500;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .control-btn:hover {
-            background-color: #e68500;
-            transform: translateY(-2px);
-        }
-
-        .control-btn.stop {
-            background-color: #d32f2f;
-        }
-
-        .control-btn.stop:hover {
-            background-color: #b71c1c;
-        }
-
-        /* --- LADO DERECHO (VIDEO Y CHAT) --- */
-        .video-chat-area {
-            flex-grow: 1;
-            position: relative;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* --- VIDEOS --- */
-        #strangerVideo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: none;
-        }
-
-        #userVideo {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid #ff9500;
-            z-index: 3;
-            display: none;
-        }
-        
-        /* --- MENSAJES Y CONTROLES SOBRE EL VIDEO --- */
-        .overlay-message {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px 30px;
-            border-radius: 10px;
-            z-index: 4;
-        }
-
-        .top-controls {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 4;
-            display: none;
-        }
-
-        .top-controls button {
-            background: rgba(0,0,0,0.5);
-            border: none;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 15px;
-            padding: 8px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .top-controls button:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
-        .top-controls button.active {
-            color: #ff9500;
-        }
-
-        .report-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(0,0,0,0.5);
-            border: none;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 5px;
-            z-index: 4;
-            display: none;
-        }
-        .report-btn:hover {
-            color: #d32f2f;
-        }
-
-        /* --- CHAT --- */
-        .chat-overlay {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 40%;
-            max-width: 450px;
-            height: 50%;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            z-index: 4;
-        }
-
-        .chat-messages {
-            flex-grow: 1;
-            padding: 15px;
-            overflow-y: auto;
-            font-size: 0.9rem;
-        }
-
-        .message {
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            border-radius: 15px;
-            max-width: 80%;
-            line-height: 1.4;
-            word-wrap: break-word;
-        }
-
-        .message.you {
-            background-color: #007aff;
-            align-self: flex-end;
-            text-align: right;
-        }
-
-        .message.stranger {
-            background-color: #333;
-            align-self: flex-start;
-        }
-
-        .chat-input-area {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #444;
-        }
-
-        .chat-input-area input {
-            flex-grow: 1;
-            padding: 8px;
-            border: 1px solid #555;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border-radius: 15px;
-            outline: none;
-        }
-
-        /* --- MODALS --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 10;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: #222;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-        }
-        .modal-content ul {
+        .service-features {
             list-style: none;
-            text-align: left;
             padding: 0;
         }
-        .modal-content li {
-            padding: 10px;
-            border-bottom: 1px solid #444;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .modal-content li:hover {
-            background-color: #333;
-        }
-        .close-modal {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close-modal:hover { color: #fff; }
 
+        .service-features li {
+            color: #cbd5e1;
+            padding: 0.25rem 0;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .project-image-wrapper img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            background-color: #334155;
+            color: #e2e8f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        .project-link {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        .studio-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .studio-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .studio-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+        }
+
+        .studio-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .studio-card p {
+            color: #94a3b8;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-icon {
+            color: #10b981;
+            margin: 0 auto 1rem auto;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 1rem;
+        }
+
+        .contact-email {
+            color: #10b981;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-description {
+            color: #94a3b8;
+            margin-top: 1rem;
+        }
+
+        .contact-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-social-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #334155;
+            border-radius: 0.5rem;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .contact-social-btn:hover {
+            background-color: #475569;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+        }
+
+        .footer-subtitle {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .navbar {
+                display: none;
+            }
+        }
     </style>
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
 
-    <!-- Lado Izquierdo: Interfaz de Usuario -->
-    <div class="user-interface">
-        <div class="logo-section">
-            <div class="logo">
-                <i class="fas fa-tv"></i>
-                <span>Ed TV</span>
+    <div class="stars-bg"></div>
+    <div class="stars-bg-2"></div>
+
+    <header class="header">
+        <div class="container">
+            <a class="logo" href="/">SoyPandax</a>
+            <nav class="navbar">
+                <a href="#sobre-mi" class="nav-link transition-colors duration-300 hover:text-cyan-400">Sobre Mí</a>
+                <a href="#servicios" class="nav-link transition-colors duration-300 hover:text-cyan-400">Servicios</a>
+                <a href="#proyectos" class="nav-link transition-colors duration-300 hover:text-cyan-400">Proyectos</a>
+                <a href="#recursos" class="nav-link transition-colors duration-300 hover:text-cyan-400">Recursos</a>
+                <a href="#trabajo" class="nav-link transition-colors duration-300 hover:text-cyan-400">Colaboraciones</a>
+                <a href="#contacto" class="nav-link transition-colors duration-300 hover:text-cyan-400">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="sobre-mi" class="section container">
+            <div class="hero-content">
+                <div data-aos="zoom-in" class="hero-image-wrapper rounded-full p-1 bg-gray-800/50 ring-2 ring-cyan-400/30 shadow-lg shadow-cyan-500/20 transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-cyan-400/40">
+                    <img src="https://placehold.co/300x300/000000/FFFFFF?text=SoyPandax" alt="SoyPandax" class="hero-image rounded-full">
+                </div>
+                <div class="hero-text" data-aos="fade-left" data-aos-delay="200">
+                    <h1 class="hero-title">¡Hola! Soy <span class="highlight">SoyPandax</span></h1>
+                    <p class="hero-description">
+                        Soy programador, builder, rolplayer, modelador y texturizador sin embargo en lo que más me noto es en mis builds y launchers creo experiencias muy buenas ala hora de eventos y juego :3
+                    </p>
+                </div>
             </div>
-            <div class="online-users" id="globalUsersCount">312.931 usuarios en línea</div>
-            <div class="active-viewers" id="activeViewersCount">0 espectadores activos</div>
-        </div>
+        </section>
 
-        <!-- SECCIÓN DE BOTONES DE DESCARGA ELIMINADA -->
-
-        <div class="control-buttons">
-            <button class="control-btn" id="startButton">Iniciar</button>
-            <button class="control-btn stop" id="stopButton">Parar</button>
-            <button class="control-btn" id="countryButton">País</button>
-            <button class="control-btn" id="iamButton">Soy</button>
-        </div>
-    </div>
-
-    <!-- Lado Derecho: Video y Chat -->
-    <div class="video-chat-area">
-        <video id="strangerVideo" autoplay muted loop>
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        </video>
-        <video id="userVideo" autoplay muted></video>
-
-        <button class="report-btn" id="reportButton" style="display:none;"><i class="fas fa-flag"></i></button>
-
-        <div id="startPrompt" class="overlay-message">
-            <p>Para comenzar, presiona <strong>Iniciar</strong> y acepta las reglas. Mantén tu cámara visible.</p>
-        </div>
-        
-        <div class="top-controls" id="topControls">
-            <button id="micButton"><i class="fas fa-microphone-slash"></i></button>
-            <button id="fullscreenButton"><i class="fas fa-expand"></i></button>
-            <button id="settingsButton"><i class="fas fa-cog"></i></button>
-        </div>
-
-        <div class="chat-overlay" id="chatOverlay">
-            <div class="chat-messages" id="chatMessages"></div>
-            <div class="chat-input-area">
-                <form id="messageForm">
-                    <input type="text" id="messageInput" placeholder="Escribe un mensaje..." autocomplete="off">
-                </form>
+        <section id="servicios" class="section container">
+            <div class="section-header" data-aos="fade-down">
+                <h2 class="section-title">Mis <span class="highlight">Servicios</span></h2>
+                <p class="section-subtitle">Soluciones profesionales adaptadas a tus necesidades</p>
             </div>
-        </div>
-    </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Desarrollo Web</h3>
+                    <p class="service-description">Creación de sitios web modernos y responsivos con diseños elegantes y funcionalidad robusta.</p>
+                    <ul class="service-features">
+                        <li>Diseño responsive y moderno</li>
+                        <li>Animaciones fluidas</li>
+                        <li>Código limpio y mantenible</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Configuraciones Minecraft</h3>
+                    <p class="service-description">Desarrollo de configuraciones de calidad para plugins de Minecraft. Interfaces personalizadas, sistemas de tiendas, menús y más.</p>
+                    <ul class="service-features">
+                        <li>Configuraciones premium</li>
+                        <li>Diseños únicos e inmersivos</li>
+                        <li>Optimización de rendimiento</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Diseño UI/GUI</h3>
+                    <p class="service-description">Diseño de interfaces atractivas y experiencias de usuario intuitivas. Enfoque en estética moderna y usabilidad excepcional.</p>
+                    <ul class="service-features">
+                        <li>Diseños modernos y atractivos</li>
+                        <li>Experiencia de usuario optimizada</li>
+                        <li>Paletas de colores profesionales</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <!-- Modals -->
-    <div id="settingsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('settingsModal')">&times;</span>
-            <h2>Configuración</h2>
-            <p>Ajusta tu experiencia aquí (solo por apariencia).</p>
-        </div>
-    </div>
-    <div id="countryModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('countryModal')">&times;</span>
-            <h2>Selecciona tu país</h2>
-            <ul>
-                <li>España</li>
-                <li>México</li>
-                <li>Argentina</li>
-                <li>Colombia</li>
-                <li>Estados Unidos</li>
-            </ul>
-        </div>
-    </div>
-    <div id="iamModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('iamModal')">&times;</span>
-            <h2>Yo soy...</h2>
-            <ul>
-                <li>Chico</li>
-                <li>Chica</li>
-                <li>Pareja</li>
-            </ul>
-        </div>
-    </div>
+        <section id="proyectos" class="section container">
+            <div class="section-header" data-aos="fade-down">
+                <h2 class="section-title">Proyectos <span class="highlight">Web</span></h2>
+                <p class="section-subtitle">Sitios web profesionales que he desarrollado para clientes</p>
+            </div>
+            <div class="content-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image-wrapper">
+                        <img src="https://placehold.co/600x400/1e293b/10b981?text=Proyecto+1" alt="Portfolio Luis7u7c">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Luis7u7c Portfolio</h3>
+                        <p class="project-description">Portfolio profesional para Luis, un Builder especializado en Minecraft. Diseño moderno con galería de proyectos y animaciones fluidas.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML</span>
+                            <span class="tech-badge">CSS</span>
+                            <span class="tech-badge">JavaScript</span>
+                        </div>
+                        <a href="#" target="_blank" class="project-link">Ver Proyecto</a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image-wrapper">
+                        <img src="https://placehold.co/600x400/1e293b/10b981?text=Proyecto+2" alt="Owleaf Studio Website">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Owleaf Studio</h3>
+                        <p class="project-description">Sitio web para Owleaf Studio, un estudio profesional dedicado a la creación de eventos en Minecraft.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML</span>
+                            <span class="tech-badge">CSS</span>
+                            <span class="tech-badge">JavaScript</span>
+                        </div>
+                        <a href="#" target="_blank" class="project-link">Ver Proyecto</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="recursos" class="section container">
+            <div class="section-header" data-aos="fade-down">
+                <h2 class="section-title">Recursos <span class="highlight">Minecraft</span></h2>
+                <p class="section-subtitle">Configuraciones premium y recursos publicados en BuiltByBit</p>
+            </div>
+            <div class="content-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image-wrapper">
+                        <img src="https://placehold.co/600x400/1e293b/10b981?text=Recurso+1" alt="ShopGUI+ Config">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ShopGUI+ Premium Config</h3>
+                        <p class="project-description">Configuración premium con más de 1230 items para el plugin ShopGUI+. Interfaz única e inmersiva para tiendas de Minecraft.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">ShopGUI+</span>
+                            <span class="tech-badge">YAML</span>
+                            <span class="tech-badge">1230+ Items</span>
+                        </div>
+                        <a href="#" target="_blank" class="project-link">Ver en BuiltByBit</a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image-wrapper">
+                        <img src="https://placehold.co/600x400/1e293b/10b981?text=Recurso+2" alt="Tab Config">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Simple Tab Config</h3>
+                        <p class="project-description">Configuración gratuita y simple para el tabulador de tu servidor. Disponible en inglés y español con diseño limpio.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">TAB</span>
+                            <span class="tech-badge">YAML</span>
+                            <span class="tech-badge">Gratis</span>
+                        </div>
+                        <a href="#" target="_blank" class="project-link">Ver en BuiltByBit</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trabajo" class="section container">
+            <div class="section-header" data-aos="fade-down">
+                <h2 class="section-title">Mis <span class="highlight">Colaboraciones</span></h2>
+                <p class="section-subtitle">Studios y networks con los que trabajo activamente</p>
+            </div>
+            <div class="trabajos-grid">
+                <div class="studio-card" data-aos="fade-up" data-aos-delay="100">
+                    <a href="#">
+                        <img src="https://placehold.co/80x80/1e293b/FFFFFF?text=O" alt="Owleaf Studio">
+                        <div class="card-content">
+                            <h4>Owleaf Studio</h4>
+                            <p style="color: #0fa4c9;">Moderator</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="studio-card" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#">
+                        <img src="https://placehold.co/80x80/1e293b/FFFFFF?text=F" alt="FishMC Network">
+                        <div class="card-content">
+                            <h4>FishMC Network</h4>
+                            <p style="color: #0ecedf;">Dueño</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="studio-card" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#">
+                        <img src="https://placehold.co/80x80/1e293b/FFFFFF?text=M" alt="MineNight Network">
+                        <div class="card-content">
+                            <h4>MineNight Network</h4>
+                            <p style="color: #dd0606;">Dueño</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section container">
+            <div class="section-header" data-aos="fade-down">
+                <h2 class="section-title">¿Listo para <span class="highlight">Trabajar Juntos</span>?</h2>
+                <p class="section-subtitle">Estoy disponible para nuevos proyectos y colaboraciones</p>
+            </div>
+            <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="contact-title">Email</h3>
+                    <a href="mailto:axres@owleafstudio.com" class="contact-email">soypandax.gmail.com</a>
+                    <p class="contact-description">Envíame un correo para discutir tu proyecto. Respondo en 24-48 horas.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" data-aos="fade-up">
+        <p>© 2025 SoyPandax. Todos los derechos reservados.</p>
+        <p class="footer-subtitle">Desarrollador Full-Stack | Web & Minecraft Development</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- ELEMENTOS DEL DOM ---
-            const startButton = document.getElementById('startButton');
-            const stopButton = document.getElementById('stopButton');
-            const strangerVideo = document.getElementById('strangerVideo');
-            const userVideo = document.getElementById('userVideo');
-            const startPrompt = document.getElementById('startPrompt');
-            const topControls = document.getElementById('topControls');
-            const chatOverlay = document.getElementById('chatOverlay');
-            const chatMessages = document.getElementById('chatMessages');
-            const messageForm = document.getElementById('messageForm');
-            const messageInput = document.getElementById('messageInput');
-            const micButton = document.getElementById('micButton');
-            const fullscreenButton = document.getElementById('fullscreenButton');
-            const reportButton = document.getElementById('reportButton');
-
-            // --- ESTADO Y LÓGICA ---
-            let userStream = null;
-            let audioStream = null;
-            let conversationHistory = [];
-            const API_URL = 'http://localhost:3001/chat';
-            const WS_URL = 'ws://localhost:3001';
-
-            // --- CONEXIÓN WEBSOCKET PARA CONTEO DE VISTANTES ---
-            const ws = new WebSocket(WS_URL);
-            ws.onmessage = (event) => {
-                const data = JSON.parse(event.data);
-                if (data.type === 'viewerCount') {
-                    document.getElementById('activeViewersCount').textContent = `${data.count} espectadores activos`;
-                }
-            };
-
-            // --- SIMULACIÓN DE CONTEO GLOBAL DE USUARIOS ---
-            let globalUsers = 312931;
-            setInterval(() => {
-                const change = Math.floor(Math.random() * 21) - 10;
-                globalUsers += change;
-                if (globalUsers < 300000) globalUsers = 300000;
-                document.getElementById('globalUsersCount').textContent = `${globalUsers.toLocaleString('es-ES')} usuarios en línea`;
-            }, 5000);
-
-            // --- FUNCIONES ---
-            const addMessage = (text, sender) => {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message', sender);
-                messageDiv.textContent = text;
-                chatMessages.appendChild(messageDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            };
-            
-            const getBotResponse = async (userMessage) => {
-                conversationHistory.push({ role: 'user', content: userMessage });
-                try {
-                    const response = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: conversationHistory }) });
-                    const data = await response.json();
-                    const botReply = data.reply;
-                    conversationHistory.push({ role: 'assistant', content: botReply });
-                    addMessage(botReply, 'stranger');
-                } catch (error) {
-                    console.error('Error:', error);
-                    addMessage('El extraño se ha desconectado.', 'stranger');
-                }
-            };
-
-            const startMedia = async () => {
-                try {
-                    userStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-                    userVideo.srcObject = userStream;
-                    userVideo.style.display = 'block';
-                } catch (error) { console.error("Error de cámara:", error); userVideo.style.display = 'none'; }
-            };
-            const stopMedia = () => {
-                if (userStream) { userStream.getTracks().forEach(t => t.stop()); userStream = null; }
-                if (audioStream) { audioStream.getTracks().forEach(t => t.stop()); audioStream = null; }
-                userVideo.style.display = 'none';
-            };
-
-            const toggleMicrophone = async () => {
-                const icon = micButton.querySelector('i');
-                if (audioStream) {
-                    audioStream.getTracks().forEach(t => t.stop());
-                    audioStream = null;
-                    icon.className = 'fas fa-microphone-slash';
-                    micButton.classList.remove('active');
-                } else {
-                    try {
-                        audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                        icon.className = 'fas fa-microphone';
-                        micButton.classList.add('active');
-                    } catch (error) { console.error("Error de micrófono:", error); }
-                }
-            };
-
-            const toggleFullscreen = () => {
-                if (!document.fullscreenElement) {
-                    document.documentElement.requestFullscreen();
-                    fullscreenButton.querySelector('i').className = 'fas fa-compress';
-                } else {
-                    document.exitFullscreen();
-                    fullscreenButton.querySelector('i').className = 'fas fa-expand';
-                }
-            };
-            
-            const openModal = (modalId) => { document.getElementById(modalId).style.display = 'flex'; };
-            const closeModal = (modalId) => { document.getElementById(modalId).style.display = 'none'; };
-            window.closeModal = closeModal;
-            
-            const startChat = () => {
-                startPrompt.style.display = 'none';
-                topControls.style.display = 'block';
-                chatOverlay.style.display = 'flex';
-                reportButton.style.display = 'block';
-                
-                strangerVideo.style.display = 'block';
-                strangerVideo.play();
-                startMedia();
-                getBotResponse("Hola, ¿qué tal?");
-            };
-
-            const stopChat = () => {
-                stopMedia();
-                strangerVideo.pause(); strangerVideo.currentTime = 0; strangerVideo.style.display = 'none';
-                conversationHistory = []; chatMessages.innerHTML = '';
-                topControls.style.display = 'none'; chatOverlay.style.display = 'none'; reportButton.style.display = 'none';
-                startPrompt.style.display = 'block';
-            };
-
-            // --- EVENT LISTENERS ---
-            startButton.addEventListener('click', startChat);
-            stopButton.addEventListener('click', stopChat);
-            micButton.addEventListener('click', toggleMicrophone);
-            fullscreenButton.addEventListener('click', toggleFullscreen);
-            document.getElementById('settingsButton').addEventListener('click', () => openModal('settingsModal'));
-            document.getElementById('countryButton').addEventListener('click', () => openModal('countryModal'));
-            document.getElementById('iamButton').addEventListener('click', () => openModal('iamModal'));
-            reportButton.addEventListener('click', () => alert('Usuario reportado. (Solo es una simulación)'));
-
-            messageForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const text = messageInput.value.trim();
-                if (text) { addMessage(text, 'you'); messageInput.value = ''; getBotResponse(text); }
-            });
-        });
+        AOS.init({ duration: 800, once: true });
     </script>
 </body>
+
 </html>
