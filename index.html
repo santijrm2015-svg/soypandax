@@ -234,6 +234,15 @@
             margin-bottom: 1.5rem;
         }
 
+        /* --- CAMBIO 1: Imágenes completas en la sección de Modelos --- */
+        #recursos .project-image-wrapper {
+            height: auto;
+        }
+        #recursos .project-image-wrapper img {
+            height: auto;
+            object-fit: contain;
+        }
+
         .project-tech {
             display: flex;
             gap: 0.5rem;
@@ -272,7 +281,12 @@
             padding: 1.5rem;
         }
 
+        /* --- CAMBIO 2: Contenido centrado en Colaboraciones --- */
         .studio-card a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
             color: inherit;
         }
