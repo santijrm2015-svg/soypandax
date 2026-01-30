@@ -51,11 +51,8 @@
         }
 
         .highlight {
-            background: linear-gradient(to right, #000000, #f0f0f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            color: #f1f5f9;
+            font-weight: 700;
         }
 
         .stars-bg, .stars-bg-2 {
@@ -172,13 +169,13 @@
             transition: all 0.3s ease;
         }
 
-        .services-grid, .content-grid, .trabajos-grid {
+        .services-grid, .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .service-card, .project-card, .studio-card {
+        .service-card, .project-card {
             background-color: #1e293b;
             border: 1px solid #334155;
             border-radius: 0.75rem;
@@ -227,19 +224,10 @@
 
         .project-image-wrapper img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- CAMBIO 1: Imágenes completas en la sección de Modelos --- */
-        #recursos .project-image-wrapper {
-            height: auto;
-        }
-        #recursos .project-image-wrapper img {
             height: auto;
             object-fit: contain;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .project-tech {
@@ -273,38 +261,6 @@
 
         .project-link:hover::after {
             transform: translateX(5px);
-        }
-
-        .studio-card {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        
-        .studio-card a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .studio-card img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-            border-radius: 50%;
-        }
-
-        .studio-card h4 {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .studio-card p {
-            color: #94a3b8;
         }
 
         .contact-content {
@@ -347,29 +303,6 @@
             margin-top: 1rem;
         }
 
-        .contact-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-social-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background-color: #334155;
-            border-radius: 0.5rem;
-            color: #e2e8f0;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease;
-        }
-        .contact-social-btn:hover {
-            background-color: #475569;
-        }
-
         .footer {
             text-align: center;
             padding: 2rem 0;
@@ -408,9 +341,7 @@
             <nav class="navbar">
                 <a href="#sobre-mi" class="nav-link transition-colors duration-300 hover:text-cyan-400">Sobre Mí</a>
                 <a href="#servicios" class="nav-link transition-colors duration-300 hover:text-cyan-400">Servicios</a>
-                <a href="#proyectos" class="nav-link transition-colors duration-300 hover:text-cyan-400">Proyectos</a>
-                <a href="#recursos" class="nav-link transition-colors duration-300 hover:text-cyan-400">Recursos</a>
-                <a href="#trabajo" class="nav-link transition-colors duration-300 hover:text-cyan-400">Colaboraciones</a>
+                <a href="#recursos" class="nav-link transition-colors duration-300 hover:text-cyan-400">Modelos</a>
                 <a href="#contacto" class="nav-link transition-colors duration-300 hover:text-cyan-400">Contacto</a>
             </nav>
         </div>
@@ -489,51 +420,13 @@
             </div>
         </section>
 
-        <section id="proyectos" class="section container">
-            <div class="section-header" data-aos="fade-down">
-                <h2 class="section-title">Proyectos <span class="highlight">Especiales</span></h2>
-                <p class="section-subtitle">Sitios Webs y discord proyectos grandes</p>
-            </div>
-            <div class="content-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image-wrapper">
-                        <img src="https://z-cdn-media.chatglm.cn/files/07bbbbb6-87e8-4488-a437-359284e3369c.png?auth_key=1801253460-5c26fe802721428ebe0861b921390aeb-0-0617d373bbdc2b108a71ef8944dfea37" alt="HexaCore">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">HexaCore</h3>
-                        <p class="project-description">Estudio especializado en crear contenido para creadores de contenido.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">Eventos</span>
-                            <span class="tech-badge">Programadores profesionales</span>
-                            <span class="tech-badge">Configuradores profesionales</span>
-                        </div>
-                        <a href="https://discord.gg/mgupMrxgas" target="_blank" class="project-link">Ver Proyecto</a>
-                    </div>
-                </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image-wrapper">
-                        <img src="https://z-cdn-media.chatglm.cn/files/7a12f265-53e0-48ae-b086-48d2cfd719f1.png?auth_key=1801253181-b03f1deeedfb4f87af9838330b1d9df5-0-21cdf59e116e24065181fc9427a8f38e" alt="Nervox Hosting">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Nervox Hosting</h3>
-                        <p class="project-description">Patrocinado por Nervox Hosting el Mejor hosting.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">Soporte 24/7</span>
-                            <span class="tech-badge">Procesador: Ryzen 9 7950X RAM DDR5 </span>
-                            <span class="tech-badge">Proteccion AntiDDOS Baja Latencia</span>
-                        </div>
-                        <a href="https://nervox.net/" target="_blank" class="project-link">Ver Proyecto</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="recursos" class="section container">
             <div class="section-header" data-aos="fade-down">
                 <h2 class="section-title">Modelos <span class="highlight">Minecraft</span></h2>
                 <p class="section-subtitle">Modelos de minecraft hechos por mi</p>
             </div>
             <div class="content-grid">
+                <!-- Modelo Existente 1 -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image-wrapper">
                         <img src="https://z-cdn-media.chatglm.cn/files/15323c8a-3692-40fd-b27f-70024a5aa3f5.png?auth_key=1801254648-4661d952ab8c405fbc4e11c1c60e19ed-0-b1af392ba20dbe41ec60468a9c6cbc9d" alt="Huevones Model">
@@ -546,9 +439,11 @@
                             <span class="tech-badge">Minecraft Java</span>
                             <span class="tech-badge">Aventuras flipantes</span>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=5JsQYJubX1o&list=PLSwuENqzscYevvpkSOgaDRxg6TdBI1dRe" target="_blank" class="project-link">Modelos</a>
+                        <a href="https://www.youtube.com/watch?v=5JsQYJubX1o&list=PLSwuENqzscYevvpkSOgaDRxg6TdBI1dRe" target="_blank" class="project-link">Ver Modelo</a>
                     </div>
                 </div>
+
+                <!-- Modelo Existente 2 -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image-wrapper">
                         <img src="https://z-cdn-media.chatglm.cn/files/3fe63cba-433f-4517-8f84-87035b1b87fb.png?auth_key=1801254811-9e3d3bd33c53422bb8889b5a3eeb156c-0-f2f36ae57e36b21edb11336b41d7a7c7" alt="Tab Config">
@@ -561,44 +456,52 @@
                             <span class="tech-badge">Minecraft Java</span>
                             <span class="tech-badge">Taxi Nutrias</span>
                         </div>
-                        <a href="https://www.youtube.com/shorts/RJ0ucIVXNe0" target="_blank" class="project-link">Modelos</a>
+                        <a href="https://www.youtube.com/shorts/RJ0ucIVXNe0" target="_blank" class="project-link">Ver Modelo</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="trabajo" class="section container">
-            <div class="section-header" data-aos="fade-down">
-                <h2 class="section-title">Mis <span class="highlight">Colaboraciones</span></h2>
-                <p class="section-subtitle">Studios y networks con los que trabajo activamente</p>
-            </div>
-            <div class="trabajos-grid">
-                <div class="studio-card" data-aos="fade-up" data-aos-delay="100">
-                    <a href="#">
-                        <img src="https://z-cdn-media.chatglm.cn/files/99bfff83-2270-49cc-9c56-a8e87cc4d1b3.png?auth_key=1801254456-d17addd67aa1465da0bf4c0ed953aaae-0-6c62c79f83353216dda6fe0667b033d6" alt="Proximamente1">
-                        <div class="card-content">
-                            <h4>Proximamente.</h4>
-                            <p style="color: #ff0000;">Nada</p>
+               
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image-wrapper">
+                        
+                        <img src="https://z-cdn-media.chatglm.cn/files/eca91943-28ea-4747-be61-a384e42387fb.png?auth_key=1801267825-1e7bd78f5fdf40e390ed53b28fdb4c63-0-f0a3e35fbd9e11ad85bb9518cb34ea8f" alt="Crepper">
+                    </div>
+                    <div class="project-content">
+                     
+                        <h3 class="project-title">Crepper Dedsafio</h3>
+                        
+                        <p class="project-description">Crepper Pastel Dedsafio Model.</p>
+                        <div class="project-tech">
+                           
+                            <span class="tech-badge">Model</span>
+                            <span class="tech-badge">Minecraft Java</span>
+                            <span class="tech-badge">TNT</span>
                         </div>
-                    </a>
+                     
+                        <a href="#" target="_blank" class="project-link">Ver Modelo</a>
+                    </div>
                 </div>
-                <div class="studio-card" data-aos="fade-up" data-aos-delay="200">
-                    <a href="https://discord.gg/hexacore" target="_blank">
-                        <img src="https://z-cdn-media.chatglm.cn/files/07bbbbb6-87e8-4488-a437-359284e3369c.png?auth_key=1801253460-5c26fe802721428ebe0861b921390aeb-0-0617d373bbdc2b108a71ef8944dfea37" alt="FishMC Network">
-                        <div class="card-content">
-                            <h4>HexaCore</h4>
-                            <p style="color: #00d0ff;">Dueño</p>
+
+                
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image-wrapper">
+                       
+                        <img src="https://z-cdn-media.chatglm.cn/files/205f6687-3155-4adb-b861-7b87d190dd1b.png?auth_key=1769735652-1eebcf0796444b5187ea6db8dc64a728-0-0d0a564fecbd6e75c7a32a09472f6900" alt="Nombre del Modelo 2">
+                    </div>
+                    <div class="project-content">
+                       
+                        <h3 class="project-title">Silla Dedsafio</h3>
+                        
+                        <p class="project-description">Silla de Dedsafio Model.</p>
+                        <div class="project-tech">
+                            
+                            <span class="tech-badge">Model</span>
+                            <span class="tech-badge">Minecraft java</span>
+                            <span class="tech-badge">Sit - Sentarse</span>
                         </div>
-                    </a>
-                </div>
-                <div class="studio-card" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#">
-                        <img src="https://z-cdn-media.chatglm.cn/files/99bfff83-2270-49cc-9c56-a8e87cc4d1b3.png?auth_key=1801254456-d17addd67aa1465da0bf4c0ed953aaae-0-6c62c79f83353216dda6fe0667b033d6" alt="Proximamente2">
-                        <div class="card-content">
-                            <h4>Proximamente.</h4>
-                            <p style="color: #ff0000;">Nada</p>
-                        </div>
-                    </a>
+                        
+                        <a href="#" target="_blank" class="project-link">Ver Modelo</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -616,9 +519,9 @@
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                     </div>
-                    <h3 class="contact-title">Email</h3>
-                    <a href="mailto:soypandax@gmail.com" class="contact-email">soypandax@gmail.com</a>
-                    <p class="contact-description">Envíame un correo para discutir tu proyecto. Respondo en 24-48 horas.</p>
+                    <h3 class="contact-title">Discord</h3>
+                    <a href="mailto:soypandax" class="contact-email">soypandax</a>
+                    <p class="contact-description">Envíame un mensaje para discutir tu proyecto. Respondo en 4-24 horas.</p>
                 </div>
             </div>
         </section>
