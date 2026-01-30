@@ -18,8 +18,8 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
+            background-color: #e5e7eb; /* Fondo gris más oscuro */
+            color: #1f2937; /* Texto gris oscuro */
             overflow-x: hidden;
         }
 
@@ -41,17 +41,17 @@
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #f1f5f9;
+            color: #111827; /* Títulos negros */
             margin-bottom: 0.5rem;
         }
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: #94a3b8;
+            color: #6b7280; /* Subtítulos grises medios */
         }
 
         .highlight {
-            color: #f1f5f9;
+            color: #111827; /* Resaltado en negro */
             font-weight: 700;
         }
 
@@ -62,33 +62,17 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-        }
-
-        .stars-bg {
-            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-            animation: drift 200s linear infinite;
-            opacity: 0.3;
-        }
-
-        .stars-bg-2 {
-            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-            animation: drift 300s linear infinite reverse;
-            opacity: 0.2;
-        }
-
-        @keyframes drift {
-            from { transform: rotate(0deg) translateX(100px); }
-            to { transform: rotate(360deg) translateX(100px); }
+            opacity: 0; /* Oculto el fondo de estrellas para el tema claro */
         }
 
         .header {
             padding: 1.5rem 0;
-            background-color: rgba(15, 23, 42, 0.8);
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Borde gris oscuro */
         }
 
         .header .container {
@@ -100,7 +84,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #f1f5f9;
+            color: #1f2937; /* Logo gris oscuro */
             text-decoration: none;
         }
 
@@ -110,10 +94,14 @@
         }
 
         .nav-link {
-            color: #cbd5e1;
+            color: #4b5563; /* Enlaces grises */
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #111827; /* Hover en negro */
         }
 
         .hero-content {
@@ -141,11 +129,12 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.5rem;
+            color: #111827; /* Título hero en negro */
         }
 
         .hero-description {
             font-size: 1.1rem;
-            color: #cbd5e1;
+            color: #4b5563; /* Descripción hero en gris */
             margin-bottom: 2rem;
             line-height: 1.7;
         }
@@ -160,10 +149,10 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.75rem 1.5rem;
-            background-color: #1e293b;
-            border: 1px solid #334155;
+            background-color: #f9fafb; /* Botón gris muy claro */
+            border: 1px solid #d1d5db; /* Borde gris */
             border-radius: 0.5rem;
-            color: #e2e8f0;
+            color: #1f2937; /* Texto oscuro */
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -176,8 +165,8 @@
         }
 
         .service-card, .project-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
+            background-color: #ffffff; /* Tarjetas blancas */
+            border: 1px solid #e5e7eb; /* Borde gris claro */
             border-radius: 0.75rem;
             padding: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -188,23 +177,23 @@
 
         .service-card:hover, .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra negra sutil */
         }
 
         .service-icon {
-            color: #10b981;
+            color: #1f2937; /* Iconos grises oscuros */
             margin-bottom: 1rem;
         }
 
         .service-title, .project-title {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #f1f5f9;
+            color: #111827; /* Títulos de tarjetas en negro */
             margin-bottom: 1rem;
         }
 
         .service-description, .project-description {
-            color: #94a3b8;
+            color: #6b7280; /* Descripciones en gris medio */
             margin-bottom: 1.5rem;
             flex-grow: 1;
         }
@@ -215,13 +204,13 @@
         }
 
         .service-features li {
-            color: #cbd5e1;
+            color: #1f2937; /* Lista de características en gris oscuro */
             padding: 0.25rem 0;
         }
 
         .service-features li::before {
             content: "✓";
-            color: #10b981;
+            color: #374151; /* Check en gris oscuro */
             font-weight: bold;
             margin-right: 0.5rem;
         }
@@ -229,11 +218,11 @@
         .project-image-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 100%; /* Aspect ratio 1:1 (Cuadrado) */
+            padding-top: 100%;
             overflow: hidden;
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
-            background-color: #334155; /* Fondo para rellenar espacios vacíos */
+            background-color: #e5e7eb; /* Fondo para imágenes */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -245,8 +234,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Muestra la imagen completa sin recortar */
-            padding: 1rem; /* Añade un pequeño padding para que no toque los bordes */
+            object-fit: contain;
+            padding: 1rem;
             box-sizing: border-box;
         }
 
@@ -258,15 +247,15 @@
         }
 
         .tech-badge {
-            background-color: #334155;
-            color: #e2e8f0;
+            background-color: #e5e7eb; /* Badges gris claro */
+            color: #4b5563; /* Texto gris */
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
             font-size: 0.875rem;
         }
 
         .project-link {
-            color: #10b981;
+            color: #374151; /* Enlaces en gris oscuro */
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -291,27 +280,27 @@
         }
 
         .contact-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
+            background-color: #ffffff; 
+            border: 1px solid #e5e7eb; 
             border-radius: 0.75rem;
             padding: 2rem;
             text-align: center;
         }
 
         .contact-icon {
-            color: #10b981;
+            color: #5865F2; 
             margin: 0 auto 1rem auto;
         }
 
         .contact-title {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #f1f5f9;
+            color: #111827; 
             margin-bottom: 1rem;
         }
 
         .contact-email {
-            color: #10b981;
+            color: #374151; 
             font-size: 1.1rem;
             font-weight: 500;
             text-decoration: none;
@@ -320,15 +309,16 @@
         }
 
         .contact-description {
-            color: #94a3b8;
+            color: #6b7280; /* 67- SixSeven
+            */
             margin-top: 1rem;
         }
 
         .footer {
             text-align: center;
             padding: 2rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #64748b;
+            border-top: 1px solid rgba(0, 0, 0, 0.1); 
+            color: #4b5563;
         }
 
         .footer-subtitle {
@@ -360,10 +350,10 @@
         <div class="container">
             <a class="logo" href="/">SoyPandax</a>
             <nav class="navbar">
-                <a href="#sobre-mi" class="nav-link transition-colors duration-300 hover:text-cyan-400">Sobre Mí</a>
-                <a href="#servicios" class="nav-link transition-colors duration-300 hover:text-cyan-400">Servicios</a>
-                <a href="#recursos" class="nav-link transition-colors duration-300 hover:text-cyan-400">Modelos</a>
-                <a href="#contacto" class="nav-link transition-colors duration-300 hover:text-cyan-400">Contacto</a>
+                <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#recursos" class="nav-link">Modelos</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
             </nav>
         </div>
     </header>
@@ -371,7 +361,7 @@
     <main>
         <section id="sobre-mi" class="section container">
             <div class="hero-content">
-                <div data-aos="zoom-in" class="hero-image-wrapper rounded-full p-1 bg-gray-800/50 ring-2 ring-cyan-400/30 shadow-lg shadow-cyan-500/20 transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-cyan-400/40">
+                <div data-aos="zoom-in" class="hero-image-wrapper rounded-full p-1 bg-gray-100/50 ring-2 ring-gray-400/30 shadow-lg shadow-gray-500/20 transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-gray-400/40">
                     <img src="https://z-cdn-media.chatglm.cn/files/91397c0a-ba48-4881-bd60-ba9d73ee322a.png?auth_key=1801251581-645a043c9fb0441198a6e43bb95a12d2-0-289f77520eff1a410e754ff41db68aa3" alt="SoyPandax" class="hero-image rounded-full">
                 </div>
                 <div class="hero-text" data-aos="fade-left" data-aos-delay="200">
@@ -404,56 +394,39 @@
                         <li>Código limpio y mantenible</li>
                     </ul>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="7" height="7"></rect>
-                            <rect x="14" y="3" width="7" height="7"></rect>
-                            <rect x="14" y="14" width="7" height="7"></rect>
-                            <rect x="3" y="14" width="7" height="7"></rect>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Configuraciones Minecraft</h3>
-                    <p class="service-description">Desarrollo de configuraciones de calidad para plugins de Minecraft. Interfaces personalizadas, sistemas de tiendas, menús y más.</p>
-                    <ul class="service-features">
-                        <li>Configuraciones premium</li>
-                        <li>Diseños únicos e inmersivos</li>
-                        <li>Optimización de rendimiento</li>
-                    </ul>
-                </div>
+                
+               
+
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                            <path d="M2 2l7.586 7.586"></path>
-                            <circle cx="11" cy="11" r="2"></circle>
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                         </svg>
                     </div>
-                    <h3 class="service-title">Programo estos Lenguajes</h3>
-                    <p class="service-description">Programo lenguajes como.</p>
+                    <h3 class="service-title">Launchers Minecraft</h3>
+                    <p class="service-description">Desarrollo de launchers custom de minecraft tanto premiun como no premiun esto lo hago para studios para facilitar su trabajo.</p>
                     <ul class="service-features">
-                        <li>Phyton</li>
-                        <li>JavaScript</li>
-                        <li>Html y mas...</li>
+                        <li>Calidad precio</li>
+                        <li>Tematica custom</li>
+                        <li>Rendimiento configuracion</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="modelos" class="section container">
+        <section id="recursos" class="section container">
             <div class="section-header" data-aos="fade-down">
                 <h2 class="section-title">Modelos <span class="highlight">Minecraft</span></h2>
                 <p class="section-subtitle">Modelos de minecraft hechos por mi</p>
             </div>
             <div class="content-grid">
-                
+              
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image-wrapper">
                         <img src="https://z-cdn-media.chatglm.cn/files/15323c8a-3692-40fd-b27f-70024a5aa3f5.png?auth_key=1801254648-4661d952ab8c405fbc4e11c1c60e19ed-0-b1af392ba20dbe41ec60468a9c6cbc9d" alt="Huevones Model">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Mr Huevon</h3>
+                        <h3 class="project-title">Modelo de Huevones Show</h3>
                         <p class="project-description">Este modelo fue inspirado en la serie de Huevones Show.</p>
                         <div class="project-tech">
                             <span class="tech-badge">Modelo</span>
@@ -464,13 +437,13 @@
                     </div>
                 </div>
 
-                
+               
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image-wrapper">
                         <img src="https://z-cdn-media.chatglm.cn/files/3fe63cba-433f-4517-8f84-87035b1b87fb.png?auth_key=1801254811-9e3d3bd33c53422bb8889b5a3eeb156c-0-f2f36ae57e36b21edb11336b41d7a7c7" alt="Tab Config">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Taxi23</h3>
+                        <h3 class="project-title">Taxi Nutrias Model</h3>
                         <p class="project-description">El modelo del carro de la nutria taxi.</p>
                         <div class="project-tech">
                             <span class="tech-badge">Model</span>
@@ -489,7 +462,7 @@
                     </div>
                     <div class="project-content">
                      
-                        <h3 class="project-title">Crepper Pastel</h3>
+                        <h3 class="project-title">Crepper Dedsafio</h3>
                         
                         <p class="project-description">Crepper Pastel Dedsafio Model.</p>
                         <div class="project-tech">
@@ -499,7 +472,7 @@
                             <span class="tech-badge">TNT</span>
                         </div>
                      
-                        <a href="https://www.youtube.com/watch?v=Tzr12UVd5FI" target="_blank" class="project-link">Ver Modelo</a>
+                        <a href="#" target="_blank" class="project-link">Ver Modelo</a>
                     </div>
                 </div>
 
@@ -511,7 +484,7 @@
                     </div>
                     <div class="project-content">
                        
-                        <h3 class="project-title">Banqueta de Juan</h3>
+                        <h3 class="project-title">Silla Dedsafio</h3>
                         
                         <p class="project-description">Silla de Dedsafio Model.</p>
                         <div class="project-tech">
@@ -521,11 +494,11 @@
                             <span class="tech-badge">Sit - Sentarse</span>
                         </div>
                         
-                        <a href="https://www.youtube.com/watch?v=HyohcZoa2cU" target="_blank" class="project-link">Ver Modelo</a>
+                        <a href="#" target="_blank" class="project-link">Ver Modelo</a>
                     </div>
                 </div>
 
-                
+               
                 <div class="project-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="project-image-wrapper">
                         <img src="https://z-cdn-media.chatglm.cn/files/c19f4686-0e4e-4a6e-be3b-f0a5fd5da49d.png?auth_key=1869783485-6d94a9f9390443db85925ad152b3a62e-0-604bd6c9d56e2ade048b9cb311afdf3c" alt="Nutria Dedsafio Model">
@@ -537,14 +510,14 @@
                             <span class="tech-badge">Model</span>
                             <span class="tech-badge">Minecraft Java</span>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=CrarpxGuOus" target="_blank" class="project-link">Ver Modelo</a>
+                        <a href="#" target="_blank" class="project-link">Ver Modelo</a>
                     </div>
                 </div>
 
-                
+                <!-- MODELO ACTUALIZADO 2 -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="project-image-wrapper">
-                        <img src="https://z-cdn-media.chatglm.cn/files/ba6f950b-9cb3-4b02-a9e9-366168c3f7cb.png?auth_key=1801319978-bf554b67deac48e28264674626eed136-0-45597c78bcd449bcb9223f5158085a90">
+                        <img src="https://z-cdn-media.chatglm.cn/files/3d8f6d51-7c0c-4f83-ba39-471393949d88.png?auth_key=1869784135-5b1b4c082e5c4e2a8f2d1c3e1d1b1c1-0-c4d721a947588b06eaef1cde1d78367b" alt="Nutria Flor Model">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Nutria Flor</h3>
@@ -553,7 +526,7 @@
                             <span class="tech-badge">Model</span>
                             <span class="tech-badge">Minecraft Java</span>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=f8aj52eKGc4&list=PLAfq6ceN9B_aBOwxo62jDo75WcPJUPdaG&index=8" target="_blank" class="project-link">Ver Modelo</a>
+                        <a href="#" target="_blank" class="project-link">Ver Modelo</a>
                     </div>
                 </div>
 
@@ -568,13 +541,14 @@
             <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
                 <div class="contact-card">
                     <div class="contact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
+                        <!-- Icono de Discord -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
                         </svg>
                     </div>
                     <h3 class="contact-title">Discord</h3>
-                    <a href="mailto:soypandax" class="contact-email">soypandax</a>
+                    <!-- IMPORTANTE: Reemplaza "TU_INVITE_AQUI" con tu enlace de invitación de Discord -->
+                    <a href="https://discord.gg/TU_INVITE_AQUI" target="_blank" class="contact-email">Unete al servidor SoyPandax</a>
                     <p class="contact-description">Envíame un mensaje para discutir tu proyecto. Respondo en 4-24 horas.</p>
                 </div>
             </div>
