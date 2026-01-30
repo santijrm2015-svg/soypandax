@@ -181,6 +181,9 @@
             border-radius: 0.75rem;
             padding: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .service-card:hover, .project-card:hover {
@@ -203,6 +206,7 @@
         .service-description, .project-description {
             color: #94a3b8;
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .service-features {
@@ -222,12 +226,28 @@
             margin-right: 0.5rem;
         }
 
-        .project-image-wrapper img {
+        .project-image-wrapper {
+            position: relative;
             width: 100%;
-            height: auto;
-            object-fit: contain;
+            padding-top: 100%; /* Aspect ratio 1:1 (Cuadrado) */
+            overflow: hidden;
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
+            background-color: #334155; /* Fondo para rellenar espacios vacíos */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Muestra la imagen completa sin recortar */
+            padding: 1rem; /* Añade un pequeño padding para que no toque los bordes */
+            box-sizing: border-box;
         }
 
         .project-tech {
@@ -252,6 +272,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            margin-top: auto;
         }
 
         .project-link::after {
@@ -426,7 +447,7 @@
                 <p class="section-subtitle">Modelos de minecraft hechos por mi</p>
             </div>
             <div class="content-grid">
-                <!-- Modelo Existente 1 -->
+                
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image-wrapper">
                         <img src="https://z-cdn-media.chatglm.cn/files/15323c8a-3692-40fd-b27f-70024a5aa3f5.png?auth_key=1801254648-4661d952ab8c405fbc4e11c1c60e19ed-0-b1af392ba20dbe41ec60468a9c6cbc9d" alt="Huevones Model">
@@ -503,6 +524,39 @@
                         <a href="#" target="_blank" class="project-link">Ver Modelo</a>
                     </div>
                 </div>
+
+                
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image-wrapper">
+                        <img src="https://z-cdn-media.chatglm.cn/files/c19f4686-0e4e-4a6e-be3b-f0a5fd5da49d.png?auth_key=1869783485-6d94a9f9390443db85925ad152b3a62e-0-604bd6c9d56e2ade048b9cb311afdf3c" alt="Nutria Dedsafio Model">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Nutria Emo Dedsafio</h3>
+                        <p class="project-description">Nutria Dedsafio Models</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Model</span>
+                            <span class="tech-badge">Minecraft Java</span>
+                        </div>
+                        <a href="#" target="_blank" class="project-link">Ver Modelo</a>
+                    </div>
+                </div>
+
+                
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-image-wrapper">
+                        <img src="https://z-cdn-media.chatglm.cn/files/ba6f950b-9cb3-4b02-a9e9-366168c3f7cb.png?auth_key=1801319978-bf554b67deac48e28264674626eed136-0-45597c78bcd449bcb9223f5158085a90">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Nutria Flor</h3>
+                        <p class="project-description">Nutria Flor Dedsafio</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Model</span>
+                            <span class="tech-badge">Minecraft Java</span>
+                        </div>
+                        <a href="#" target="_blank" class="project-link">Ver Modelo</a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
