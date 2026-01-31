@@ -18,8 +18,8 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #e5e7eb; 
-            color: #1f2937; 
+            background-color: #111827;
+            color: #e5e7eb;
             overflow-x: hidden;
         }
 
@@ -41,17 +41,17 @@
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #111827; 
+            color: #f3f4f6;
             margin-bottom: 0.5rem;
         }
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: #6b7280; /* Subtítulos grises medios */
+            color: #9ca3af;
         }
 
         .highlight {
-            color: #111827; /* Resaltado en negro */
+            color: #f3f4f6;
             font-weight: 700;
         }
 
@@ -62,17 +62,17 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            opacity: 0; /* Oculto el fondo de estrellas para el tema claro */
+            opacity: 0.1;
         }
 
         .header {
             padding: 1.5rem 0;
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+            background-color: rgba(17, 24, 39, 0.9);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Borde gris oscuro */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .header .container {
@@ -84,7 +84,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #1f2937; /* Logo gris oscuro */
+            color: #f3f4f6;
             text-decoration: none;
         }
 
@@ -94,14 +94,14 @@
         }
 
         .nav-link {
-            color: #4b5563; /* Enlaces grises */
+            color: #d1d5db;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-link:hover {
-            color: #111827; /* Hover en negro */
+            color: #f3f4f6;
         }
 
         .hero-content {
@@ -129,12 +129,12 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: #111827; /* Título hero en negro */
+            color: #f3f4f6;
         }
 
         .hero-description {
             font-size: 1.1rem;
-            color: #4b5563; /* Descripción hero en gris */
+            color: #d1d5db;
             margin-bottom: 2rem;
             line-height: 1.7;
         }
@@ -149,10 +149,10 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.75rem 1.5rem;
-            background-color: #f9fafb; /* Botón gris muy claro */
-            border: 1px solid #d1d5db; /* Borde gris */
+            background-color: #1f293b;
+            border: 1px solid #374151;
             border-radius: 0.5rem;
-            color: #1f2937; /* Texto oscuro */
+            color: #e5e7eb;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -165,8 +165,8 @@
         }
 
         .service-card, .project-card {
-            background-color: #ffffff; /* Tarjetas blancas */
-            border: 1px solid #e5e7eb; /* Borde gris claro */
+            background-color: #1f293b;
+            border: 1px solid #374151;
             border-radius: 0.75rem;
             padding: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -177,23 +177,23 @@
 
         .service-card:hover, .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra negra sutil */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .service-icon {
-            color: #1f2937; /* Iconos grises oscuros */
+            color: #10b981;
             margin-bottom: 1rem;
         }
 
         .service-title, .project-title {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #111827; /* Títulos de tarjetas en negro */
+            color: #f3f4f6;
             margin-bottom: 1rem;
         }
 
         .service-description, .project-description {
-            color: #6b7280; /* Descripciones en gris medio */
+            color: #d1d5db;
             margin-bottom: 1.5rem;
             flex-grow: 1;
         }
@@ -204,13 +204,13 @@
         }
 
         .service-features li {
-            color: #1f2937; /* Lista de características en gris oscuro */
+            color: #e5e7eb;
             padding: 0.25rem 0;
         }
 
         .service-features li::before {
             content: "✓";
-            color: #374151; /* Check en gris oscuro */
+            color: #10b981;
             font-weight: bold;
             margin-right: 0.5rem;
         }
@@ -222,7 +222,7 @@
             overflow: hidden;
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
-            background-color: #e5e7eb; /* Fondo para imágenes */
+            background-color: #374151;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -247,15 +247,15 @@
         }
 
         .tech-badge {
-            background-color: #e5e7eb; /* Badges gris claro */
-            color: #4b5563; /* Texto gris */
+            background-color: #374151;
+            color: #e5e7eb;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
             font-size: 0.875rem;
         }
 
         .project-link {
-            color: #374151; /* Enlaces en gris oscuro */
+            color: #10b981;
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -280,27 +280,27 @@
         }
 
         .contact-card {
-            background-color: #ffffff; 
-            border: 1px solid #e5e7eb; 
+            background-color: #1f293b;
+            border: 1px solid #374151;
             border-radius: 0.75rem;
             padding: 2rem;
             text-align: center;
         }
 
         .contact-icon {
-            color: #5865F2; 
+            color: #5865F2;
             margin: 0 auto 1rem auto;
         }
 
         .contact-title {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #111827; 
+            color: #f3f4f6;
             margin-bottom: 1rem;
         }
 
         .contact-email {
-            color: #374151; 
+            color: #10b981;
             font-size: 1.1rem;
             font-weight: 500;
             text-decoration: none;
@@ -309,16 +309,15 @@
         }
 
         .contact-description {
-            color: #6b7280; /* 67- SixSeven
-            */
+            color: #9ca3af;
             margin-top: 1rem;
         }
 
         .footer {
             text-align: center;
             padding: 2rem 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.1); 
-            color: #4b5563;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
         }
 
         .footer-subtitle {
@@ -352,7 +351,7 @@
             <nav class="navbar">
                 <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
                 <a href="#servicios" class="nav-link">Servicios</a>
-                <a href="#recursos" class="nav-link">Modelos</a>
+                <a href="#recursos" class="nav-link">Proyectos</a>
                 <a href="#contacto" class="nav-link">Contacto</a>
             </nav>
         </div>
@@ -361,7 +360,7 @@
     <main>
         <section id="sobre-mi" class="section container">
             <div class="hero-content">
-                <div data-aos="zoom-in" class="hero-image-wrapper rounded-full p-1 bg-gray-100/50 ring-2 ring-gray-400/30 shadow-lg shadow-gray-500/20 transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-gray-400/40">
+                <div data-aos="zoom-in" class="hero-image-wrapper rounded-full p-1 bg-gray-800/50 ring-2 ring-cyan-400/30 shadow-lg shadow-cyan-500/20 transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-cyan-400/40">
                     <img src="https://z-cdn-media.chatglm.cn/files/91397c0a-ba48-4881-bd60-ba9d73ee322a.png?auth_key=1801251581-645a043c9fb0441198a6e43bb95a12d2-0-289f77520eff1a410e754ff41db68aa3" alt="SoyPandax" class="hero-image rounded-full">
                 </div>
                 <div class="hero-text" data-aos="fade-left" data-aos-delay="200">
@@ -382,8 +381,8 @@
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                         </svg>
                     </div>
                     <h3 class="service-title">Desarrollo Minecraft</h3>
@@ -394,8 +393,6 @@
                         <li>Modelador 3D</li>
                     </ul>
                 </div>
-                
-               
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon">
@@ -416,8 +413,8 @@
 
         <section id="recursos" class="section container">
             <div class="section-header" data-aos="fade-down">
-                <h2 class="section-title">Modelos <span class="highlight">Minecraft</span></h2>
-                <p class="section-subtitle">Modelos de minecraft hechos por mi</p>
+                <h2 class="section-title"><span class="highlight">Proyectos</span></h2>
+                <p class="section-subtitle">Mis proyectos destacados</p>
             </div>
             <div class="content-grid">
               
@@ -557,7 +554,7 @@
 
     <footer class="footer" data-aos="fade-up">
         <p>© 2025 SoyPandax. Todos los derechos reservados.</p>
-        <p class="footer-subtitle">Desarrollador | 2026 </p>
+        <p class="footer-subtitle">Desarrollador | 2026</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
